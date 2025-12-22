@@ -8,7 +8,7 @@ WORKDIR /app
 # Kopiere package.json und installiere Dependencies
 COPY package.json ./
 COPY yarn.lock* ./
-RUN yarn install --mode=production
+RUN yarn install
 
 # Kopiere Anwendungscode
 COPY src/ ./src/

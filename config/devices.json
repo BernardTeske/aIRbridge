@@ -1,0 +1,11 @@
+[
+  {
+    "id": "tannenbaum",
+    "name": "Tannenbaum",
+    "espIp": "192.168.4.135",
+    "mqttTopic": "ir-device/tannenbaum",
+    "onCode": "0x0FC1",
+    "offCode": "0x07C8"
+  }
+]
+

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  airbridge-gateway:
+    # Ersetze <dein-username> mit deinem GitHub-Benutzernamen
+    image: ghcr.io/bernardteske/airbridge-mqtt-gateway:latest
+    container_name: airbridge-gateway
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER_HOST=${MQTT_BROKER_HOST:-mosquitto}
+      - MQTT_BROKER_PORT=${MQTT_BROKER_PORT:-1883}
+      - MQTT_USERNAME=${MQTT_USERNAME:-}
+      - MQTT_PASSWORD=${MQTT_PASSWORD:-}
+      - CONFIG_PATH=/app/config/devices.json
+    volumes:
+      - ./config/devices.json:/app/config/devices.json:ro
+    networks:
+      - smart-home
+
+networks:
+  smart-home:
+    external: true
+

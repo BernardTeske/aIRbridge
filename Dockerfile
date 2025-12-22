@@ -1,5 +1,8 @@
 FROM node:20-alpine
 
+# Aktiviere Corepack für Yarn 4
+RUN corepack enable && corepack prepare yarn@4.12.0 --activate
+
 WORKDIR /app
 
 # Kopiere package.json und installiere Dependencies

@@ -8,8 +8,9 @@ WORKDIR /app
 # Konfiguriere Yarn 4 für node_modules (statt PnP)
 ENV YARN_NODE_LINKER=node-modules
 
-# Kopiere package.json und installiere Dependencies
+# Kopiere package.json und Yarn-Konfiguration
 COPY package.json ./
+COPY .yarnrc.yml ./
 COPY yarn.lock* ./
 RUN yarn install
 

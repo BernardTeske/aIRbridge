@@ -1,7 +1,10 @@
 services:
   airbridge-gateway:
-    # Ersetze <dein-username> mit deinem GitHub-Benutzernamen
-    image: ghcr.io/bernardteske/airbridge:latest
+    # Für lokales Testen: build lokal, für Production: image von GHCR verwenden
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: ghcr.io/bernardteske/airbridge:latest  # Kommentiere aus für lokales Build
     container_name: airbridge-gateway
     restart: unless-stopped
     environment:

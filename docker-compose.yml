@@ -15,10 +15,9 @@ services:
       - CONFIG_PATH=/app/config/devices.json
     volumes:
       - ./config/devices.json:/app/config/devices.json:ro
-    networks:
-      - smart-home
-
-networks:
-  smart-home:
-    external: false
+    # Bridge-Netzwerk für Zugriff auf Host-Netzwerk (ESP-Geräte)
+    # Standard-Bridge-Netzwerk hat Zugriff auf das Host-Netzwerk
+    network_mode: bridge
+    # Falls MQTT-Broker auf Host läuft, verwende host.docker.internal
+    # Ansonsten MQTT_BROKER_HOST auf die Container-IP oder Service-Name setzen
 

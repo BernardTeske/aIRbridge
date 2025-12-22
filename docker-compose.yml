@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   airbridge-gateway:
     # Ersetze <dein-username> mit deinem GitHub-Benutzernamen
-    image: ghcr.io/bernardteske/airbridge-mqtt-gateway:latest
+    image: ghcr.io/bernardteske/airbridge:latest
     container_name: airbridge-gateway
     restart: unless-stopped
     environment:
@@ -19,5 +17,5 @@ services:
 
 networks:
   smart-home:
-    external: true
+    external: false
 

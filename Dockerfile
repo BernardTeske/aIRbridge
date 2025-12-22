@@ -5,6 +5,9 @@ RUN corepack enable && corepack prepare yarn@4.12.0 --activate
 
 WORKDIR /app
 
+# Konfiguriere Yarn 4 für node_modules (statt PnP)
+ENV YARN_NODE_LINKER=node-modules
+
 # Kopiere package.json und installiere Dependencies
 COPY package.json ./
 COPY yarn.lock* ./
